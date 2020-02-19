@@ -15,3 +15,12 @@ mongodb:
 spring:
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+  application:
+    name: spring-boot-multi-mongo
+
+server:
+  port: 2135
+
+logging:
+  level:
+    root: DEBUG
