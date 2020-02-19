@@ -18,42 +18,36 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @SpringBootApplication
 @EnableMongoAuditing
-public class Application implements CommandLineRunner {
-
-    @Autowired
-    private PrimaryRepository primaryRepository;
-
-    @Autowired
-    private SecondaryRepository secondaryRepository;
+public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        log.info("************************************************************");
-        log.info("Start printing mongo objects");
-        log.info("************************************************************");
-        this.primaryRepository.save(new PrimaryModel(null, "Primary database plain object"));
+    // @Override
+    // public void run(String... args) throws Exception {
+    //     log.info("************************************************************");
+    //     log.info("Start printing mongo objects");
+    //     log.info("************************************************************");
+    //     this.primaryRepository.save(new PrimaryModel(null, "Primary database plain object"));
 
-        this.secondaryRepository.save(new SecondaryModel(null, "Secondary database plain object"));
+    //     this.secondaryRepository.save(new SecondaryModel(null, "Secondary database plain object"));
 
-        List<PrimaryModel> primaries = this.primaryRepository.findAll();
-        for (PrimaryModel primary : primaries) {
-            log.info(primary.toString());
-        }
+    //     List<PrimaryModel> primaries = this.primaryRepository.findAll();
+    //     for (PrimaryModel primary : primaries) {
+    //         log.info(primary.toString());
+    //     }
 
-        List<SecondaryModel> secondaries = this.secondaryRepository.findAll();
+    //     List<SecondaryModel> secondaries = this.secondaryRepository.findAll();
 
-        for (SecondaryModel secondary : secondaries) {
-            log.info(secondary.toString());
-        }
+    //     for (SecondaryModel secondary : secondaries) {
+    //         log.info(secondary.toString());
+    //     }
 
-        log.info("************************************************************");
-        log.info("Ended printing mongo objects");
-        log.info("************************************************************");
+    //     log.info("************************************************************");
+    //     log.info("Ended printing mongo objects");
+    //     log.info("************************************************************");
 
-    }
+    // }
 }
 
